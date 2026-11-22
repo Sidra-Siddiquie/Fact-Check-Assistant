@@ -1,0 +1,51 @@
+# Fact Check Assistant — M2 Test Inputs and Outputs
+
+## TC02 — Contradicted Claim
+**Claim:** The Earth takes 100 days to complete one revolution around the Sun.
+
+**Evidence:** Earth orbits the Sun in an elliptical orbit, completing one revolution in approximately 365.25 days.
+
+**Observed Verdict:** FALSE
+
+**Observation:** The system identified the claim as FALSE because the supplied evidence states approximately 365.25 days, not 100 days.
+
+## TC03 — Partially Supported Claim
+**Claim:** The Earth revolves around the Sun and completes one revolution in 100 days.
+
+**Evidence:** Earth revolves around the Sun in an elliptical orbit and completes one revolution in approximately 365.25 days.
+
+**Observed Verdict:** PARTIALLY TRUE
+
+**Observation:** The system recognised that Earth revolves around the Sun but identified the 100-day duration as incorrect.
+
+## TC04 — Insufficient Evidence
+**Claim:** The Earth has exactly 10,000 mountains.
+
+**Evidence:** The Earth revolves around the Sun in an elliptical orbit and completes one revolution in approximately 365.25 days.
+
+**Observed Verdict:** UNVERIFIED
+
+**Observation:** The supplied evidence did not contain information about the number of mountains on Earth.
+
+## TC05 — Conflicting Evidence
+**Claim:** The Earth completes one revolution around the Sun in 365 days.
+
+**Evidence:** Evidence 1 states approximately 365 days. Evidence 2 states approximately 400 days.
+
+**Observed Verdict:** UNVERIFIED
+
+**Observation:** The system identified conflicting information and explained the uncertainty.
+
+## TC10 — Compound Claim
+**Claim:** The Earth revolves around the Sun and the Moon revolves around the Earth.
+
+**Evidence:** The Earth orbits the Sun in an elliptical orbit. The Moon orbits the Earth.
+
+**Observed Verdict:** TRUE
+
+**Observation:** The system examined both statements separately and found both supported by the supplied evidence.
+
+---
+
+## Testing Note
+These tests were conducted manually using the generated prompts and ChatGPT responses. The application generates prompts and stores the returned reports; it does not independently verify claims or retrieve evidence automatically.

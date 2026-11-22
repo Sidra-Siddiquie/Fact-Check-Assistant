@@ -1,0 +1,49 @@
+Test ID: TC01
+Scenario: Clearly supported claim
+Actual Result: Pass
+Observation: Generated a fact-checking prompt, pasted the response and saved the report successfully.
+
+Test ID: TC02
+Scenario: Contradicted claim
+Actual Result: Pass
+Observation: The system identified the claim as FALSE because the supplied evidence states that Earth's revolution takes approximately 365.25 days, not 100 days.
+
+Test ID: TC03
+Scenario: Partially supported claim
+Actual Result: Pass
+Observation: The system identified the claim as PARTIALLY TRUE. It correctly recognised that Earth revolves around the Sun but identified the 100-day duration as incorrect based on the supplied evidence.
+
+Test ID: TC04
+Scenario: Insufficient evidence
+Actual Result: Pass
+Observation: The system returned UNVERIFIED because the supplied evidence did not contain information about the number of mountains on Earth.
+
+Test ID: TC05
+Scenario: Conflicting evidence
+Actual Result: Pass
+Observation: The system returned UNVERIFIED because the supplied evidence contained conflicting information about the Earth's orbital period. It identified the uncertainty instead of selecting one statement without justification.
+
+Test ID: TC06
+Scenario: Empty claim
+Actual Result: Pass
+Observation: V1 Basic prompt loaded correctly with the expected opening text.
+
+Test ID: TC07
+Scenario: Empty evidence
+Actual Result: Pass
+Observation: V2 Improved prompt loaded correctly with the expected opening text.
+
+Test ID: TC08
+Scenario: Very long claim
+Actual Result: Pass
+Observation: V3 Advanced prompt loaded correctly with the expected opening text.
+
+Test ID: TC09
+Scenario: Missing source information
+Actual Result: Pass
+Observation: Application rejected a claim exceeding 2,000 characters and displayed the length validation message.
+
+Test ID: TC10
+Scenario: Compound claim
+Actual Result: Pass
+Observation: The system identified the compound claim as TRUE. It examined both statements separately and found that both were supported by the supplied evidence.
