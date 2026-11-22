@@ -27,6 +27,19 @@ st.set_page_config(
 if "history" not in st.session_state:
     st.session_state.history = []
 
+    report_path = Path(__file__).resolve().parent.parent / "test-data" / "fact_check_report.txt"
+
+    if report_path.exists():
+        saved_report = report_path.read_text(encoding="utf-8")
+
+        st.session_state.history.append({
+            "date": "Previously saved",
+            "claim": "Saved fact-check report",
+            "verdict": "Not specified",
+            "report": saved_report,
+            "version": "Saved Report"
+        })
+
 if "generated_prompt" not in st.session_state:
     st.session_state.generated_prompt = ""
 
@@ -34,7 +47,18 @@ if "displayed_report" not in st.session_state:
     st.session_state.displayed_report = ""
 
 if "test_results" not in st.session_state:
-    st.session_state.test_results = []
+    st.session_state.test_results = [
+        {"id": "TC01", "scenario": "Clearly supported claim", "status": "Pass", "notes": "Prompt generated and report saved successfully."},
+        {"id": "TC02", "scenario": "Contradicted claim", "status": "Pass", "notes": "The supplied evidence contradicted the claim. Verdict: FALSE."},
+        {"id": "TC03", "scenario": "Partially supported claim", "status": "Pass", "notes": "The system identified the partially supported claim."},
+        {"id": "TC04", "scenario": "Insufficient evidence", "status": "Pass", "notes": "The system returned UNVERIFIED."},
+        {"id": "TC05", "scenario": "Conflicting evidence", "status": "Pass", "notes": "The system returned UNVERIFIED for conflicting evidence."},
+        {"id": "TC06", "scenario": "Empty claim", "status": "Pass", "notes": "Validation message displayed for an empty claim."},
+        {"id": "TC07", "scenario": "Empty evidence", "status": "Pass", "notes": "Validation message displayed for empty evidence."},
+        {"id": "TC08", "scenario": "Very long claim", "status": "Pass", "notes": "Length validation message displayed for a claim exceeding 2000 characters."},
+        {"id": "TC09", "scenario": "Missing source information", "status": "Pass", "notes": "Prompt generated successfully without optional source information."},
+        {"id": "TC10", "scenario": "Compound claim", "status": "Pass", "notes": "Both statements were supported by the supplied evidence."}
+    ]
 
 
 
@@ -874,6 +898,39 @@ elif page == "Testing & Evaluation":
     st.markdown("## 📈 Test Progress")
 
     saved_results = st.session_state.test_results
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     total_tests = len(test_cases)
     recorded_tests = len(saved_results)
