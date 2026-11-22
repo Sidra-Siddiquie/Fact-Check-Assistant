@@ -45,8 +45,8 @@ The application provides structured prompts to support evidence-based analysis a
 
    `python -m streamlit run code/app.py`
 
-## Prototype Link
-To be updated after the latest application is deployed.
+## Live Prototype
+[Open Fact Check Assistant] https://fact-check-assistant-3ijclstjdtypbsbjaaqhwz.streamlit.app/
 
 ## Team Details
 **Team Name:** TestNexus  
